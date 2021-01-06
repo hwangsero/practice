@@ -4,7 +4,8 @@ spring:
   freemarker:
     template-loader-path: classpath:/templates/
     suffix: .ftl
-
+  jwt:
+    secret: govlepel@$&amp;
 
 #spring:
 #  devtools:

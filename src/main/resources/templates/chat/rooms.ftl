@@ -32,9 +32,15 @@
 
     <div class="row">
 
-        <div class="col-md-12">
+        <div class="col-md-6">
 
             <h3>채팅방 리스트</h3>
+
+        </div>
+
+        <div class="col-md-6 text-right">
+
+            <a class="btn btn-primary btn-sm" href="/logout">로그아웃</a>
 
         </div>
 
@@ -60,7 +66,7 @@
 
     <ul class="list-group">
 
-        <li class="list-group-item list-group-item-action" v-for="item in chatrooms" v-bind:key="item.roomId" v-on:click="enterRoom(item.roomId)">
+        <li class="list-group-item list-group-item-action" v-for="item in chatrooms" v-bind:key="item.roomId" v-on:click="enterRoom(item.roomId, item.name)">
 
             {{item.name}}
 
@@ -142,19 +148,13 @@
 
             },
 
-            enterRoom: function(roomId) {
+            enterRoom: function(roomId, roomName) {
 
-                var sender = prompt('대화명을 입력해 주세요.');
+                localStorage.setItem('wschat.roomId',roomId);
 
-                if(sender != "") {
+                localStorage.setItem('wschat.roomName',roomName);
 
-                    localStorage.setItem('wschat.sender',sender);
-
-                    localStorage.setItem('wschat.roomId',roomId);
-
-                    location.href="/chat/room/enter/"+roomId;
-
-                }
+                location.href="/chat/room/enter/"+roomId;
 
             }
 
