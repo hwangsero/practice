@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - openjdk15.0.1
+  - openjdk15
 
 branches:
   only:
@@ -13,6 +13,9 @@ cache: # gradle을 통해 받은 의존성들을 캐시에 저장하여 같은 �
     - '$HOME/.gradle'
 
 script: "./gradlew clean build"
+
+before_install:
+  - chmod +x gradlew # build 시 gradle 권한 부여
 
 # CI 실행 완료시 메일로 알람
 notifications:
