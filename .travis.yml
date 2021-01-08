@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - openjdk15
+  - openjdk15.0.1
 
 branches:
   only:
