@@ -1,0 +1,21 @@
+language: java
+jdk:
+  - openjdk15
+
+branches:
+  only:
+    - master # master 브랜치에 push되었을 때만 동작
+
+# Travis CI 서버의 Home
+cache: # gradle을 통해 받은 의존성들을 캐시에 저장하여 같은 의존성은 다음 배포 때 다시 받지 않는다.
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.gradle'
+
+script: "./gradlew clean build"
+
+# CI 실행 완료시 메일로 알람
+notifications:
+  email:
+    recipients:
+      - hsro2228@naver.com

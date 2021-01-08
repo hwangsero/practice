@@ -7,6 +7,8 @@ import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Controller;
 import socket.practice.config.JwtTokenProvider;
+import socket.practice.domain.Message;
+import socket.practice.repository.MessageRepository;
 
 @RequiredArgsConstructor
 @Controller
@@ -16,6 +18,7 @@ public class ChatController {
     private final JwtTokenProvider jwtTokenProvider;
     private final RedisTemplate<String, Object> redisTemplate;
     private final ChannelTopic channelTopic;
+    private final MessageRepository messageRepository;
 
     @MessageMapping("/chat/message")
     public void message(ChatMessage message, @Header("token") String token) {
@@ -26,9 +29,16 @@ public class ChatController {
         if (ChatMessage.MessageType.ENTER.equals(message.getType())) {
             message.setSender("[알림]");
             message.setMessage(nickname + "님이 입장하셨습니다.");
+        } else {
+            // Websocket에 발행된 메시지를 redis로 발행(publish)
+            System.out.println("여깁니다");
+            Message m = new Message();
+            m.setMessage(message.getMessage());
+            m.setRoomId(message.getRoomId());
+            m.setSenderId(message.getSender());
+            messageRepository.save(m);
+            redisTemplate.convertAndSend(channelTopic.getTopic(), message);
         }
-        // Websocket에 발행된 메시지를 redis로 발행(publish)
-        redisTemplate.convertAndSend(channelTopic.getTopic(), message);
     }
 }
 

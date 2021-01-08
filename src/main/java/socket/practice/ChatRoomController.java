@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import socket.practice.config.JwtTokenProvider;
+import socket.practice.domain.Message;
+import socket.practice.repository.MessageRepository;
 
 import java.util.List;
 
@@ -17,6 +19,8 @@ public class ChatRoomController {
 
     private final ChatRoomRepository chatRoomRepository;
     private final JwtTokenProvider jwtTokenProvider;
+    private final MessageRepository messageRepository;
+
 
     // 채팅 리스트 화면
     @GetMapping("/room")
@@ -41,6 +45,8 @@ public class ChatRoomController {
     // 채팅방 입장 화면
     @GetMapping("/room/enter/{roomId}")
     public String roomDetail(Model model, @PathVariable String roomId) {
+        List<Message> all = messageRepository.findAll();
+        model.addAttribute("add", all);
         model.addAttribute("roomId", roomId);
         return "/chat/roomdetail";
     }

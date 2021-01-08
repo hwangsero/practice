@@ -127,7 +127,6 @@
         created() {
 
             this.roomId = localStorage.getItem('wschat.roomId');
-
             this.roomName = localStorage.getItem('wschat.roomName');
 
             var _this = this;
