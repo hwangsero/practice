@@ -39,5 +39,5 @@ deploy:
     acl: public_read
     wait-until-deployed: true
     on:
-      repo: https://github.com/hwangsero/practice.git #Github 주소
+      repo: hwangsero/practice #Github 주소
       branch: master
