@@ -1,4 +1,4 @@
-package socket.practice;
+package socket;
 
 
 import lombok.RequiredArgsConstructor;
@@ -9,7 +9,7 @@ import org.springframework.messaging.simp.stomp.StompCommand;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.messaging.support.ChannelInterceptor;
 import org.springframework.stereotype.Component;
-import socket.practice.config.JwtTokenProvider;
+import socket.config.JwtTokenProvider;
 
 @Slf4j
 @RequiredArgsConstructor

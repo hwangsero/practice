@@ -1,4 +1,4 @@
-package socket.practice;
+package socket;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -6,9 +6,9 @@ import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Controller;
-import socket.practice.config.JwtTokenProvider;
-import socket.practice.domain.Message;
-import socket.practice.repository.MessageRepository;
+import socket.config.JwtTokenProvider;
+import socket.domain.Message;
+import socket.repository.MessageRepository;
 
 @RequiredArgsConstructor
 @Controller

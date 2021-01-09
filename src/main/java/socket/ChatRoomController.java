@@ -1,4 +1,4 @@
-package socket.practice;
+package socket;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -6,9 +6,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import socket.practice.config.JwtTokenProvider;
-import socket.practice.domain.Message;
-import socket.practice.repository.MessageRepository;
+import socket.config.JwtTokenProvider;
+import socket.domain.Message;
+import socket.repository.MessageRepository;
 
 import java.util.List;
 

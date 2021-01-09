@@ -1,4 +1,4 @@
-package socket.practice;
+package socket;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.HashOperations;

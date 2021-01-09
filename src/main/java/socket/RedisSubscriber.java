@@ -1,4 +1,4 @@
-package socket.practice;
+package socket;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

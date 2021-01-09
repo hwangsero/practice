@@ -1,4 +1,4 @@
-package socket.practice;
+package socket;
 
 import lombok.Builder;
 import lombok.Getter;

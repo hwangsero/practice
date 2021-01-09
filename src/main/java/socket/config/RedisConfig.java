@@ -1,4 +1,4 @@
-package socket.practice.config;
+package socket.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import socket.practice.RedisSubscriber;
+import socket.RedisSubscriber;
 
 @RequiredArgsConstructor
 @Configuration

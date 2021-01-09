@@ -1,4 +1,4 @@
-package socket.practice.domain;
+package socket.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
