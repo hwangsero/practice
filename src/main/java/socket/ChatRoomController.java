@@ -1,15 +1,19 @@
 package socket;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import socket.config.JwtTokenProvider;
 import socket.domain.Message;
 import socket.repository.MessageRepository;
+import socket.test.S3Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -65,4 +69,18 @@ public class ChatRoomController {
         String name = auth.getName();
         return LoginInfo.builder().name(name).token(jwtTokenProvider.generateToken(name)).build();
     }
+
+    @Autowired
+    S3Service service;
+
+    @GetMapping("/test")
+    public String test() throws IOException {
+        return "/chat/test";
+    }
+
+    @PostMapping("/joins")
+    public void join(MultipartFile file) throws IOException {
+        service.upload(file);
+    }
+
 }

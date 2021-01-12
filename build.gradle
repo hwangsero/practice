@@ -51,6 +51,10 @@ dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-aws', version: '2.2.1.RELEASE', ext: 'pom'
+
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-aws
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-aws', version: '2.2.1.RELEASE'
 //embedded-redis
 
 	compile group: 'it.ozimov', name: 'embedded-redis', version: '0.7.2'
